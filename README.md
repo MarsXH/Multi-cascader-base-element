@@ -156,3 +156,5 @@ expandTrigger | 下级展开方式 | String | 'click', 'hover' | 'click'
 - valueKey：即 item 的唯一标识，eg: item 的 id
 - labelKey：即 item 的展示名， eg: item 的 name
 - childrenKey：即 item 下级的 key
+
+> **依赖**：Element-UI、Vue、lodash
