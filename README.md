@@ -151,6 +151,7 @@ valueKey | value 唯一标识的键名 | String | -- | 'value'
 labelKey | label 唯一标识的键名 | String | -- | 'label'
 childrenKey | childrenKey 唯一标识的键名 | String | -- | 'children'
 expandTrigger | 下级展开方式 | String | 'click', 'hover' | 'click'
+selectChildren | 是否允许父子联动 | Boolean | -- | true
 
 > **补充说明**
 
