@@ -126,6 +126,10 @@ export default {
     expandTrigger: { // 下级展开方式
       type: String,
       default: 'click'
+    },
+    selectChildren: { // 是否允许父子联动
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -260,7 +264,7 @@ export default {
         return o[this.valueKey]
       })
       this.$emit('input', result)
-      if (this.isShowIndeterminate) this.isIndeterminate(node.level, this.root.childNodes)
+      if (this.isShowIndeterminate && this.selectChildren) this.isIndeterminate(node.level, this.root.childNodes)
     },
     removeOne (v) {
       let targetNode = _.find(this.selectedNodes, { showLabel: v })
@@ -313,6 +317,7 @@ export default {
       this.store = new TreeStore({
         data: this.data,
         isShowIndeterminate: this.isShowIndeterminate,
+        selectChildren: this.selectChildren,
         separator: this.separator,
         valueKey: this.valueKey,
         labelKey: this.labelKey,
@@ -337,7 +342,7 @@ export default {
 
 <style lang="scss">
 .multi-cascader-base-element {
-  .el-tag.el-tag--info.el-tag--small.el-tag--light {
+  .el-tag.el-tag--info.el-tag--small {
     max-width: 100%;
     display: flex;
     align-items: center;

@@ -48,7 +48,6 @@ export default {
   methods: {
     handleMouseEnter (node, levelIndex, level) {
       if (this.expandTrigger === 'hover' && this.allowEmit) {
-        console.log(122211)
         this.$emit('handle-click', node, levelIndex, level)
         this.allowEmit = false
       }
@@ -69,6 +68,3 @@ export default {
 }
 </script>
 
-<style>
-
-</style>

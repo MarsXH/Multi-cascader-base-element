@@ -60,12 +60,12 @@ export default class Node {
     if (this.disabled) { return false }
     this.checked = checked
     this.updateSelectIds(checked, this.id)
-    if (this.childNodes) {
+    if (this.childNodes && this.selectChildren) {
       this.childNodes.forEach(child => {
         child.check(checked)
       })
     }
-    if (this.parent) {
+    if (this.parent && this.selectChildren) {
       this.parent.checkedAll()
     }
   }
@@ -73,7 +73,7 @@ export default class Node {
   checkedAll () {
     if (this.childNodes) {
       this.checked = this.childNodes.every(child => child.checked)
-      if (this.store.isShowIndeterminate) {
+      if (this.store.isShowIndeterminate && this.store.selectChildren) {
         this.indeterminate = this.childNodes.some(child => child.checked || child.indeterminate)
         if (this.checked) this.indeterminate = false
       }
@@ -87,7 +87,7 @@ export default class Node {
   updateSelectIds (checked, id) {
     let store = this.store
     if (checked) {
-      if (this.isLeaf) {
+      if (this.isLeaf || !store.selectChildren) {
         let tempList = _.cloneDeep(store.selectedIds)
         tempList.push(id)
         tempList = _.uniq(tempList)
