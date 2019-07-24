@@ -3,6 +3,9 @@
 > UI 风格与 element 完全一致，支持半选、远程搜索等。
 > 无需 install ，拿来即用。
 
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190724154925165.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5NTU0ODg1NA==,size_16,color_FFFFFF,t_70)
+
 ## How To Use
 - copy multi-cascader-base-element/ 文件夹下所有内容至自己项目
 - 在需要使用的 component 中引入：
